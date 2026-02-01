@@ -37,11 +37,12 @@ $Candidates = foreach ($bin in $Binaries) {
 $Candidates | Format-Table -AutoSize
 ```
 
-![[Pasted image 20260201195609.png]]
+<img width="1158" height="949" alt="Pasted image 20260201195609" src="https://github.com/user-attachments/assets/e87be1b2-cacc-4602-a04c-d97fb85919a3" />
 
 - Com isso, foram executados todos os binários
 
-![[Pasted image 20260201195629.png]]
+<img width="843" height="923" alt="Pasted image 20260201195629" src="https://github.com/user-attachments/assets/55bbbec5-62e5-495a-a18c-a04b87099db6" />
+
 
 - Agora é preciso visualizar no procmon64, com os filtros:
 	- Path contains CurVer
