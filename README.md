@@ -1,5 +1,5 @@
 # BypassUAC
-Bypass UAC via CurVer
+Bypass UAC via CurVer - [Método Earth Preta](https://www.trendmicro.com/en_us/research/23/c/earth-preta-updated-stealthy-strategies.html)
 
 
 - Execução de script em powershell para visualizar softwares com Autoelevate, via manifest
